@@ -21,8 +21,29 @@ button{
 
 }
 img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 5%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.addBtn {
+  // text-align: right;
+  position: absolute;
+  top: 10px;
+  left: auto;
+  right: 10px;
+  background-color: green; // Set the desired background color
+  color: white; // Set the text color
+  padding: 8px 16px; // Adjust padding as needed
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darkgreen; // Set the hover background color
   }
+}

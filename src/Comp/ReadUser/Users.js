@@ -12,7 +12,9 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+import {DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useNavigate,Link } from "react-router-dom";
+import crud from "../../assets/crud.png";
 
 const Users = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -46,10 +48,10 @@ const Users = () => {
 
   return (
     <div>
-      <img src="../assets/crud.png" alt="" width="100px" height="202px"/>
-      <Button colorScheme="green" className="addBtn" onClick={openForm}>
+      <img src={crud} alt="" />
+      <button colorScheme="green" className="addBtn" onClick={openForm}>
         Add User
-      </Button>
+      </button>
       <TableContainer>
         <Table variant="simple" className="users-table">
           <TableCaption>All Users Data</TableCaption>
@@ -70,7 +72,7 @@ const Users = () => {
                   <Td>{user.username}</Td>
                   <Td>{user.email}</Td>
                   <Td >
-                  <Link to={`/edituser/${user.id}`} className="edit-button">Edit</Link>
+                  <Link to={`/edituser/${user.id}`} className="edit-button"><EditIcon/></Link>
                   </Td>
                   <Td>
                     <Button
@@ -79,7 +81,7 @@ const Users = () => {
                         handleDelete(user.id);
                       }}
                     >
-                      Delete
+                      <DeleteIcon/>
                     </Button>
                   </Td>
                 </Tr>
