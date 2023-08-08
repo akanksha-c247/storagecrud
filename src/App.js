@@ -6,6 +6,7 @@ import EditUser from './Comp/EditUser/EditUser';
 
 function App() {
   return (
+    <div className="App">
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Users/>}/>
@@ -13,7 +14,8 @@ function App() {
         <Route path="/edituser/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>
+    </div>
+
   );
 }
-
 export default App;

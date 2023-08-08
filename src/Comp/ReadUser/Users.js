@@ -12,15 +12,20 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-import { useNavigate, useLocation,Link } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 const Users = () => {
   const [allUsers, setAllUsers] = useState([]);
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
-    axios
+    const storedData = JSON.parse(localStorage.getItem("dataKey")) || [];
+    debugger
+    if(storedData.length != 0)
+    {
+      setAllUsers(storedData);
+    }else{
+      axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
         setAllUsers(res.data);
@@ -28,6 +33,7 @@ const Users = () => {
         console.log(res);
       })
       .catch((err) => console.log(err));
+    }
   }, []);
 
   const openForm = () => {

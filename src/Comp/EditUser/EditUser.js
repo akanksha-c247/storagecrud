@@ -20,6 +20,7 @@ const EditUser = () => {
   }, [id]);
 
   const handleEdit = () => {
+    debugger;
     const storedData = JSON.parse(localStorage.getItem("dataKey")) || [];
     const updatedData = storedData.map((user) =>
       user.id === parseInt(id) ? formData : user

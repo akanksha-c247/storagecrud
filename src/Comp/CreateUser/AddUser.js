@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
-  const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
     id: "",
     name: "",
@@ -13,7 +12,12 @@ const AddUser = () => {
   const navigate= useNavigate()
 
   const handleAdd = () => {
+    debugger;
     const storedData = JSON.parse(localStorage.getItem("dataKey")) || [];
+    const highestId = storedData.reduce((maxId, user) => {
+      return user.id > maxId ? user.id : maxId;
+    }, 0);
+    formData.id=parseInt(highestId)+1
     const newData = [...storedData, formData];
     localStorage.setItem("dataKey", JSON.stringify(newData));
     console.log('newData: ', newData);
@@ -26,41 +30,56 @@ const AddUser = () => {
     }));
   };
   return (
-    <div>
-      <FormControl isRequired>
-        <FormLabel>Id</FormLabel>
-        <Input
-          placeholder="id"
-          value={formData.id}
+    <div className="container mt-5">
+      <form>
+        <div className="mb-3">
+          <label htmlFor="id" className="form-label">Id</label>
+          <input
+            type="text"
+            className="form-control"
+            id="id"
+            value={formData.id}
             onChange={(e) => handleInputChange("id", e.target.value)}
-        />
-        <FormLabel>Name</FormLabel>
-        <Input
-          placeholder="name"
-          value={formData.name}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            value={formData.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
-        />
-        <FormLabel>Username</FormLabel>
-        <Input
-          placeholder="username"
-          value={formData.username}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="username" className="form-label">Username</label>
+          <input
+            type="text"
+            className="form-control"
+            id="username"
+            value={formData.username}
             onChange={(e) => handleInputChange("username", e.target.value)}
-        />
-        <FormLabel>Email</FormLabel>
-        <Input
-          placeholder="email"
-          value={formData.email}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
-        />
-      </FormControl>
-      <Button
-        loadingText="Submitting"
-        colorScheme="teal"
-        variant="outline"
-        onClick={handleAdd}
-      >
-        Submit
-      </Button>
+          />
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleAdd}
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
