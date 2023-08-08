@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
