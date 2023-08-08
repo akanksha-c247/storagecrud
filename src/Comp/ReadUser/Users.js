@@ -20,7 +20,6 @@ const Users = () => {
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("dataKey")) || [];
-    debugger
     if(storedData.length != 0)
     {
       setAllUsers(storedData);
@@ -47,6 +46,7 @@ const Users = () => {
 
   return (
     <div>
+      <img src="../assets/crud.png" alt="" width="100px" height="202px"/>
       <Button colorScheme="green" className="addBtn" onClick={openForm}>
         Add User
       </Button>

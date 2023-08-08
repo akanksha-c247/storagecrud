@@ -1,0 +1,28 @@
+@import "config";
+@import "side";
+@import "./variables";
+
+$fontsize: 18px;
+
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+#container {
+    width: 680px;
+  }
+button{
+    &:hover{
+        @include defaultValue;
+    }
+    // color: $primary;
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }

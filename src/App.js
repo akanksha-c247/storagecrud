@@ -3,6 +3,7 @@ import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import Users from './Comp/ReadUser/Users';
 import AddUser from './Comp/CreateUser/AddUser';
 import EditUser from './Comp/EditUser/EditUser';
+import './scss/main.scss'
 
 function App() {
   return (

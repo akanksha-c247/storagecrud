@@ -1,0 +1,27 @@
+@mixin defaultValue {
+    cursor: pointer;
+    border:none;
+    outline:none;
+    text-decoration: none;
+    // color: $white;
+    list-style-type: none;
+    background: none;
+}
+@mixin trsansition{
+    transition: all 0.5s ease-in-out;
+}
+@mixin zindex{
+    position: relative;
+    z-index: 99;
+}
+@mixin flex($justify) {
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-align: center;
+}
+@mixin absolute{
+    position: absolute;
+    top: 0;
+    left:0;
+}

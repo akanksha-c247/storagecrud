@@ -10,9 +10,7 @@ const AddUser = () => {
     email: "",
   });
   const navigate= useNavigate()
-
   const handleAdd = () => {
-    debugger;
     const storedData = JSON.parse(localStorage.getItem("dataKey")) || [];
     const highestId = storedData.reduce((maxId, user) => {
       return user.id > maxId ? user.id : maxId;
